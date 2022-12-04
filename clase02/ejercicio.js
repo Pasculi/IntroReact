@@ -85,13 +85,8 @@ contradigan lo solicitado, no serán considerados como válidos.
 // 0 Arreglo con los ids de los responsables de cada cuartel
 const listPaddockManagerIds = () => paddockManagers.map((paddockManager) => paddockManager.id);
 // 1 Arreglo con los ruts de los responsables de los cuarteles, ordenados por nombre
-const listPaddockManagersByName = () => {
-    // CODE HERE
-    const clienteTaxNumber = () => paddockManagers.sort((a,b) =>{
-        return (a.name - b.name)
-   })
-}
-   clienteTaxNumber()
+const listPaddockManagersByName = () => paddockManagers.sort((a,b) => a.name.localeCompare(b.name)).map(client => client.taxNumber)
+
 
 
 
