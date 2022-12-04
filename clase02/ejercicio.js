@@ -83,13 +83,18 @@ contradigan lo solicitado, no serán considerados como válidos.
 */
 // Tip: Una hectárea equivale a 10.000m2
 // 0 Arreglo con los ids de los responsables de cada cuartel
-function listPaddockManagerIds() {
-return paddockManagers.map((paddockManager) => paddockManager.id);
-};
+const listPaddockManagerIds = () => paddockManagers.map((paddockManager) => paddockManager.id);
 // 1 Arreglo con los ruts de los responsables de los cuarteles, ordenados por nombre
-function listPaddockManagersByName() {
-// CODE HERE
-};
+const listPaddockManagersByName = () => {
+    // CODE HERE
+    const clienteTaxNumber = () => paddockManagers.sort((a,b) =>{
+        return (a.name - b.name)
+   })
+}
+   clienteTaxNumber()
+
+
+
 // 2 Arreglo con los nombres de cada tipo de cultivo, ordenados decrecientemente por la suma
 //TOTAL de la cantidad de hectáreas plantadas de cada uno de ellos.
 function sortPaddockTypeByTotalArea() {
@@ -143,19 +148,19 @@ console.log('Pregunta 0');
 console.log(listPaddockManagerIds());
 console.log('Pregunta 1');
 console.log(listPaddockManagersByName());
-console.log('Pregunta 2');
-console.log(sortPaddockTypeByTotalArea());
-console.log('Pregunta 3');
-console.log(sortFarmManagerByAdminArea());
-console.log('Pregunta 4');
-console.log(farmManagerNames());
-console.log('Pregunta 5');
-console.log(biggestAvocadoFarms());
-console.log('Pregunta 6');
-console.log(biggestCherriesManagers());
-console.log('Pregunta 7');
-console.log(farmManagerPaddocks());
-console.log('Pregunta 8');
-console.log(paddocksManagers());
-console.log('Pregunta 9');
-console.log(newManagerRanking());
+//console.log('Pregunta 2');
+//console.log(sortPaddockTypeByTotalArea());
+//console.log('Pregunta 3');
+//console.log(sortFarmManagerByAdminArea());
+//console.log('Pregunta 4');
+//console.log(farmManagerNames());
+//console.log('Pregunta 5');
+//console.log(biggestAvocadoFarms());
+//console.log('Pregunta 6');
+//console.log(biggestCherriesManagers());
+//console.log('Pregunta 7');
+//console.log(farmManagerPaddocks());
+//console.log('Pregunta 8');
+//console.log(paddocksManagers());
+//console.log('Pregunta 9');
+//console.log(newManagerRanking());
