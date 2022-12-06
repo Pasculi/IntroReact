@@ -87,14 +87,19 @@ const listPaddockManagerIds = () => paddockManagers.map((paddockManager) => padd
 // 1 Arreglo con los ruts de los responsables de los cuarteles, ordenados por nombre
 const listPaddockManagersByName = () => paddockManagers.sort((a,b) => a.name.localeCompare(b.name)).map(client => client.taxNumber)
 
-
-
-
 // 2 Arreglo con los nombres de cada tipo de cultivo, ordenados decrecientemente por la suma
 //TOTAL de la cantidad de hectáreas plantadas de cada uno de ellos.
-function sortPaddockTypeByTotalArea() {
-// CODE HERE
+const sortPaddockTypeByTotalArea = () =>{
+   const totalArea =  paddockType.map(paddockTy => {
+      const areas = [];
+      paddocks.filter(paddock => paddock.paddockTypeId === paddockTy.id && areas.push(paddock.area));
+      areas.reduce((acc, item) => acc + item);
+      return {[paddockTy.name]:areas.reduce((acc, item)=> acc + item)};
+})
+return totalArea.sort((a,b) => Object.values(b) - Object.values(a))
 }
+
+
 // 3 Arreglo con los nombres de los administradores, ordenados decrecientemente por la suma
 //TOTAL de hectáreas que administran.
 function sortFarmManagerByAdminArea() {
@@ -143,8 +148,8 @@ console.log('Pregunta 0');
 console.log(listPaddockManagerIds());
 console.log('Pregunta 1');
 console.log(listPaddockManagersByName());
-//console.log('Pregunta 2');
-//console.log(sortPaddockTypeByTotalArea());
+console.log('Pregunta 2');
+console.log(sortPaddockTypeByTotalArea());
 //console.log('Pregunta 3');
 //console.log(sortFarmManagerByAdminArea());
 //console.log('Pregunta 4');
