@@ -96,7 +96,7 @@ const sortPaddockTypeByTotalArea = () =>{
       areas.reduce((acc, item) => acc + item);
       return {[paddockTy.name]:areas.reduce((acc, item)=> acc + item)};
 })
-return totalArea.sort((a,b) => Object.values(b) - Object.values(a))
+return totalArea.sort((a,b) => Object.values(b) - Object.values(a)).map(cultivoName => Object.keys(cultivoName)[0])
 }
 
 
